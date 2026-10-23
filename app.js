@@ -1,17 +1,17 @@
 const button = doccument.getElementByID("testBtn");
 const result = document.getElementById("result");
 
-// const supabaseURL = "https://hajlfhfikjtkxwhoetzf.supabase.co"
-// const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhamxmaGZpa2p0a3h3aG9ldHpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3MTA0ODAsImV4cCI6MjEwODI4NjQ4MH0.krDQsL1w4ohKWPopuIhawrErVpa92PVoHni8jbA0Wv4"
-// const supabaseClient = window.supabase.createClient(supabaseURL,supabaseKey);
+const supabaseURL = "https://hajlfhfikjtkxwhoetzf.supabase.co"
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhamxmaGZpa2p0a3h3aG9ldHpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3MTA0ODAsImV4cCI6MjEwODI4NjQ4MH0.krDQsL1w4ohKWPopuIhawrErVpa92PVoHni8jbA0Wv4"
+const supabaseClient = window.supabase.createClient(supabaseURL,supabaseKey);
 
 button.addEventListener("click", () => {
     result.innerText = "Supabase client successfully connected";
 });
-const supabaseURL = "https://hajlfhfikjtkxwhoetzf.supabase.co"
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhamxmaGZpa2p0a3h3aG9ldHpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3MTA0ODAsImV4cCI6MjEwODI4NjQ4MH0.krDQsL1w4ohKWPopuIhawrErVpa92PVoHni8jbA0Wv4"
+// const supabaseURL = "https://hajlfhfikjtkxwhoetzf.supabase.co"
+// const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhamxmaGZpa2p0a3h3aG9ldHpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3MTA0ODAsImV4cCI6MjEwODI4NjQ4MH0.krDQsL1w4ohKWPopuIhawrErVpa92PVoHni8jbA0Wv4"
 
-const supabaseClient = window.supabase.createClient(supabaseURL,supabaseKey);
+// const supabaseClient = window.supabase.createClient(supabaseURL,supabaseKey);
 
 const signupBtn = document.getElementById("signupBtn");
 const loginBtn = document.getElementById("loginBtn");
