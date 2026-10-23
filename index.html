@@ -1,14 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Mason's Webpage</title>
-    <body>
-        <h1 style="text-align: center;">Mason Andrade's Webpage</h1>
-        <p>My name is Mason and I am a junior at Bridgewater State University.</p>
-        <img src="./BoydenHall.jpg" alt="Bridgewater State University" height="200" width="400" style="display: block; margin: 0 auto;"> 
-        <p >My major is Computer Science And I am currently from working towards a bachelor's degree.</p>
-        <div> I am from new bedford </div>
-        
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supabase Auth Demo</title>
+  </head>
+  <body>
+    <main>
+      <h1>Supabase Auth Demo</h1>
+      <p id="status" role="status" aria-live="polite"></p>
+      <button id="testBtn" type="button">Test Supabase connection</button>
+
+      <section id="authPanel">
+        <h2>Sign up</h2>
+        <form id="signupForm">
+          <label for="signupEmail">Email</label>
+          <input id="signupEmail" type="email" autocomplete="email" required>
+          <label for="signupPassword">Password</label>
+          <input id="signupPassword" type="password" autocomplete="new-password" required minlength="6">
+          <button type="submit">Sign Up</button>
+        </form>
+
+        <h2>Log in</h2>
+        <form id="loginForm">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" autocomplete="email" required>
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" required>
+          <button type="submit">Log in</button>
+        </form>
+      </section>
+
+      <section id="dashboard" hidden>
+        <h2>Dashboard</h2>
+        <p id="welcome"></p>
+        <button id="logoutBtn" type="button">Log out</button>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
 </html>
