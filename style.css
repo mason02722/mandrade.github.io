@@ -192,13 +192,7 @@ button:hover {
     }
 
     .illustration {
-        flex: 0 0 auto;
-    }
-
-    .profile-icon {
-        width: 112px;
-        font-size: 54px;
-        border-width: 5px;
+        display: none;
     }
 
     .form-container {
