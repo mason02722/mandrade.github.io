@@ -11,6 +11,33 @@ const forgotPassword = document.getElementById("forgotPassword");
 const authPanel = document.getElementById("authPanel");
 const dashboard = document.getElementById("dashboard");
 const welcomeText = document.getElementById("welcome");
+const backgroundVideo = dashboard.querySelector(".background");
+
+backgroundVideo.addEventListener("error", () => {
+    console.error("Dashboard background video could not be loaded; showing the background image instead.");
+    backgroundVideo.hidden = true;
+});
+
+function showSession(session) {
+    const user = session?.user;
+    authPanel.style.display = user ? "none" : "block";
+    dashboard.style.display = user ? "block" : "none";
+    welcomeText.innerText = user
+        ? "Welcome back, " + (user.user_metadata?.display_name || "User")
+        : "";
+
+    if (user) {
+        backgroundVideo.play().catch((error) => {
+            console.error("Dashboard background video could not start.", error);
+        });
+    } else {
+        backgroundVideo.pause();
+    }
+}
+
+supabaseClient.auth.onAuthStateChange((_event, session) => {
+    showSession(session);
+});
 
 // SIGN UP with Display Name
 signupBtn.addEventListener("click", async () => {
@@ -18,7 +45,7 @@ signupBtn.addEventListener("click", async () => {
     const email = document.getElementById("signupEmail").value;
     const password = document.getElementById("signupPassword").value;
 
-    const { data, error } = await supabaseClient.auth.signUp({
+    const { error } = await supabaseClient.auth.signUp({
         email: email,
         password: password,
         options: {
@@ -40,30 +67,21 @@ loginBtn.addEventListener("click", async () => {
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
 
-    const { data, error } = await supabaseClient.auth.signInWithPassword({
+    const { error } = await supabaseClient.auth.signInWithPassword({
         email: email,
         password: password
     });
 
     if (error) {
         alert("Login failed: " + error.message);
-    } else {
-        // Show the Display Name from metadata if available
-        const displayName = data.user.user_metadata.display_name || "User";
-        
-        authPanel.style.display = "none";
-        dashboard.style.display = "block";
-        welcomeText.innerText = "Welcome back, " + displayName;
     }
 });
 
 // LOGOUT
 logoutBtn.addEventListener("click", async () => {
     const { error } = await supabaseClient.auth.signOut();
-    if (!error) {
-        authPanel.style.display = "block";
-        dashboard.style.display = "none";
-        welcomeText.innerText = "";
+    if (error) {
+        alert("Logout failed: " + error.message);
     }
 });
 

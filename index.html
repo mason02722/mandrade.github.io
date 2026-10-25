@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Supabase Auth Demo</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div id="authPanel">
         <div class="login-card">
             <div class="illustration">
@@ -46,9 +46,19 @@
 
     <!-- Dashboard Section -->
     <div id="dashboard">
-        <h1 style="color: white;">Welcome to your Dashboard</h1>
-        <p id="welcome" style="color: white; font-size: 24px;"></p>
-        <button id="logoutBtn" style="width: auto; padding: 10px 30px;">Log out</button>
+        <video class="background" autoplay muted loop playsinline preload="auto" poster="Dashboard/images/background.jpg">
+            <source src="Dashboard/images/background.mp4" type="video/mp4">
+        </video>
+        <h2 class="name">Mason Andrade</h2>
+        <p id="welcome" class="welcome"></p>
+        <nav class="menu" aria-label="Main navigation">
+            <p><i class="fa-solid fa-user"></i><a href="Dashboard/aboutme.html"> About me</a></p>
+            <p><i class="fa-solid fa-file-lines"></i> Resume</p>
+            <p><i class="fa-solid fa-gamepad"></i><a href="Dashboard/hobby.html"> Hobby</a></p>
+            <p><i class="fa-solid fa-briefcase"></i> Work</p>
+            <p><i class="fa-solid fa-project-diagram"></i><a href="Dashboard/project.html"> Projects</a></p>
+        </nav>
+        <button id="logoutBtn" class="logout-button" type="button">Log out</button>
     </div>
 
     <script type="module" src="app.js"></script>
