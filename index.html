@@ -1,43 +1,56 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Supabase Auth Demo</title>
-  </head>
-  <body>
-    <main>
-      <h1>Supabase Auth Demo</h1>
-      <p id="status" role="status" aria-live="polite"></p>
-      <button id="testBtn" type="button">Test Supabase connection</button>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      <section id="authPanel">
-        <h2>Sign up</h2>
-        <form id="signupForm">
-          <label for="signupEmail">Email</label>
-          <input id="signupEmail" type="email" autocomplete="email" required>
-          <label for="signupPassword">Password</label>
-          <input id="signupPassword" type="password" autocomplete="new-password" required minlength="6">
-          <button type="submit">Sign Up</button>
-        </form>
+    <div id="authPanel">
+        <div class="login-card">
+            <div class="illustration">
+                <div class="profile-icon">👤</div>
+            </div>
 
-        <h2>Log in</h2>
-        <form id="loginForm">
-          <label for="loginEmail">Email</label>
-          <input id="loginEmail" type="email" autocomplete="email" required>
-          <label for="loginPassword">Password</label>
-          <input id="loginPassword" type="password" autocomplete="current-password" required>
-          <button type="submit">Log in</button>
-        </form>
-      </section>
+            <div class="form-container">
+                <h1 id="formTitle">User Login</h1>
+                
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input id="loginEmail" type="email" placeholder="Email id" required>
+                    </div>
+                    <div class="input-group">
+                        <input id="loginPassword" type="password" placeholder="Password" required>
+                    </div>
+                    <button type="button" id="loginBtn">Login</button>
+                    <a href="#" id="forgotPassword" class="forgot-link">Forgot Username / Password?</a>
+                </form>
 
-      <section id="dashboard" hidden>
-        <h2>Dashboard</h2>
-        <p id="welcome"></p>
-        <button id="logoutBtn" type="button">Log out</button>
-      </section>
-    </main>
+                <hr style="margin: 20px 0; border: 0.5px solid #eee;">
+
+                <!-- Signup Form (Simplified for this UI) -->
+                <h3 id="signupTitle">New here? Create an account</h3>
+                <form id="signupForm">
+                    <input id="signupName" type="text" placeholder="Display Name" style="margin-bottom:10px;">
+                    <input id="signupEmail" type="email" placeholder="Email id" style="margin-bottom:10px;" required>
+                    <input id="signupPassword" type="password" placeholder="Password" style="margin-bottom:10px;" required>
+                    <button type="button" id="signupBtn" style="background-color: #2196F3;">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard">
+        <h1 style="color: white;">Welcome to your Dashboard</h1>
+        <p id="welcome" style="color: white; font-size: 24px;"></p>
+        <button id="logoutBtn" style="width: auto; padding: 10px 30px;">Log out</button>
+    </div>
 
     <script type="module" src="app.js"></script>
-  </body>
+</body>
 </html>
